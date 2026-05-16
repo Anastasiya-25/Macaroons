@@ -1,5 +1,8 @@
 import {Component} from '@angular/core';
 import {ProductType} from "./types/product.type";
+import {FormValuesType} from "./types/form-values.type";
+import {AdvantagesType} from "./types/advantages-type";
+import {MediaType} from "./types/media.type";
 
 @Component({
   selector: 'app-root',
@@ -7,8 +10,9 @@ import {ProductType} from "./types/product.type";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Macaroons';
-  public advantages =
+  title: string = 'Macaroons';
+  public isOrderCreated: boolean = false;
+  public advantages: AdvantagesType[] =
     [
       {
         title: 'Лучшие продукты',
@@ -28,7 +32,7 @@ export class AppComponent {
       },
     ];
 
-  public products =
+  public products: ProductType[] =
     [
       {
         image: '1.png',
@@ -56,7 +60,7 @@ export class AppComponent {
       },
     ];
 
-  public formValues = {
+  public formValues: FormValuesType = {
     productTitle: '',
     name: '',
     phone: ''
@@ -71,7 +75,8 @@ export class AppComponent {
     this.formValues.productTitle = product.title;
   }
 
-  public createOrder() {
+  public createOrder(): void{
+    console.log('Данные формы при отправке:', this.formValues);
     if (!this.formValues.productTitle) {
       alert('Заполните название!');
       return;
@@ -84,7 +89,7 @@ export class AppComponent {
       alert('Заполните телефон!');
       return;
     }
-    alert('Спасибо за заказ!');
+    this.isOrderCreated = true;
 
     this.formValues = {
       productTitle: '',
@@ -93,14 +98,18 @@ export class AppComponent {
     }
   }
 
-  public media = [
+  public closePopup(): void {
+    this.isOrderCreated = false;
+  }
+
+  public media: MediaType[] = [
     {
       image: 'instagram.png',
       text: 'Мы в Instagram'
     }
   ];
 
-  public phone = '+375 (29) 368-98-68';
+  public phone: string = '+375 (29) 368-98-68';
 
   public showPresent: boolean = true;
 }

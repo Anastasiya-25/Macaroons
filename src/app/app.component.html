@@ -61,7 +61,7 @@
       <button class="button main__button" (click)="scrollTo(productElement)">Выбрать макарун</button>
     </div>
     <div class="main__image">
-      <img src="assets/image/macaroons_big.png" alt="Macaroons" class="main__image-img">
+      <img src="assets/image/macaroons_big.png" alt="Macaroons" class="main__image-img pulsing-img">
     </div>
   </div>
 </section>
@@ -133,21 +133,18 @@
         Выберите понравившийся макарун, заполните форму и ожидайте звонка нашего пекаря!
       </div>
 
-      <div class="order__form" #orderElement>
+      <form class="order__form" #orderElement (ngSubmit)="createOrder()">
         <div class="form__title">Ваш выбор</div>
-        <input type="text" class="form__input input__order" placeholder="Напишите, что хотите заказать..." [(ngModel)]="formValues.productTitle">
-        <div class="error_input">Введите ваш заказ</div>
+        <input type="text" class="form__input input__order" placeholder="Напишите, что хотите заказать..." [(ngModel)]="formValues.productTitle" name="productTitle">
         <div class="form__title">Заполните данные для заказа</div>
-        <input type="text" class="form__input input__name" placeholder="Ваше имя"[(ngModel)]="formValues.name">
-        <div class="error_input">Введите ваше имя</div>
-        <input type="tel" class="form__input input__phone" placeholder="+375 (__) ___ - __ - __" [(ngModel)]="formValues.phone">
-        <div class="error_input">Введите ваш номер телефона</div>
-        <button class="button form__button" (click)="createOrder()">Оформить заказ</button>
-      </div>
+        <input type="text" class="form__input input__name" placeholder="Ваше имя"[(ngModel)]="formValues.name" name="name">
+        <input type="tel" class="form__input input__phone" placeholder="+375 (__) ___ - __ - __" [(ngModel)]="formValues.phone" name="phone">
+        <button class="button form__button" type="submit">Оформить заказ</button>
+      </form>
     </div>
-    <div class="order__created">
+    <div class="order__created" *ngIf="isOrderCreated">
       <p>Спасибо за Ваш заказ. Мы скоро свяжемся с Вами!</p>
-      <button class="button closeBtn">Закрыть</button>
+      <button class="button closeBtn" (click)="closePopup()">Закрыть</button>
     </div>
     <div class="order__strawberry">
       <img src="assets/image/strowberry_left.png" alt="Strawberry1" class="order__strawberry__left">

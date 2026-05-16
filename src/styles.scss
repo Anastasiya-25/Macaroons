@@ -1,1 +1,103 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Gilroy;
+  src: url("./assets/fonts/Gilroy-Regular.ttf");
+}
+
+@font-face {
+  font-family: Gilroy-Bold;
+  src: url("./assets/fonts/Gilroy-Bold.ttf");
+}
+
+@font-face {
+  font-family: Gilroy-ExtraBold;
+  src: url("./assets/fonts/Gilroy-ExtraBold.otf");
+}
+
+@font-face {
+  font-family: Gilroy-Medium;
+  src: url("./assets/fonts/Gilroy-Medium.ttf");
+}
+
+@font-face {
+  font-family: Tavolga;
+  src: url("./assets/fonts/tavolga-free.ttf");
+}
+
+body {
+  font-family: Gilroy, sans-serif;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 390px;
+}
+
+.button {
+  background: linear-gradient(90deg, rgb(113, 8, 30) 0%, rgb(215, 72, 92) 100%);
+
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  font-family: Gilroy-Bold, sans-serif;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+@media screen and (max-width: 1792px) {
+  .container {
+    padding: 0 250px;
+  }
+}
+
+@media screen and (max-width: 1610px) {
+  .container {
+    padding: 0 180px
+  }
+}
+@media screen and (max-width: 1478px) {
+  .container {
+    padding: 0 150px
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media screen and (max-width: 1315px) {
+  .container {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    padding: 0 30px
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    padding: 0 20px
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .container {
+    padding: 0 15px
+  }
+}
