@@ -41,7 +41,7 @@ body {
 }
 
 .button {
-  background: linear-gradient(90deg, rgb(113, 8, 30) 0%, rgb(215, 72, 92) 100%);
+  //background: linear-gradient(90deg, rgb(113, 8, 30) 0%, rgb(215, 72, 92) 100%);
 
   border-radius: 30px;
   border: none;
@@ -51,6 +51,10 @@ body {
   font-family: Gilroy-Bold, sans-serif;
   color: rgb(255, 255, 255);
   text-align: center;
+}
+
+.button:hover {
+  box-shadow: 0 5px 9px 1px rgba(164, 31, 56, 0.5);
 }
 
 @media screen and (max-width: 1792px) {

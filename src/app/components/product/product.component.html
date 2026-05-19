@@ -1,0 +1,13 @@
+<div class="product">
+  <div class="product__image">
+    <img src="assets/image/{{product.image}}" class="product__image-img">
+  </div>
+  <div class="product__title">{{product.title}}</div>
+  <div class="product__buy">
+    <div class="buy__text">
+      <div class="product__amount">{{product.amount}}</div>
+      <div class="product__price">{{product.price | currency:'RUB':'':'1.2-2' }} руб.</div>
+    </div>
+    <button class="button product__button" button (click)="addToCart()">Заказать</button>
+  </div>
+</div>

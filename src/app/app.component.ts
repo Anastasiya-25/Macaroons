@@ -1,15 +1,18 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductType} from "./types/product.type";
 import {FormValuesType} from "./types/form-values.type";
 import {AdvantagesType} from "./types/advantages-type";
 import {MediaType} from "./types/media.type";
+import {ProductService} from "./services/product.service";
+import {CartService} from "./services/cart.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [ProductService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title: string = 'Macaroons';
   public isOrderCreated: boolean = false;
   public advantages: AdvantagesType[] =
@@ -32,33 +35,14 @@ export class AppComponent {
       },
     ];
 
-  public products: ProductType[] =
-    [
-      {
-        image: '1.png',
-        title: 'Макарун с малиной',
-        amount: '1 шт.',
-        price: '1,70 руб.'
-      },
-      {
-        image: '2.png',
-        title: 'Макарун с манго',
-        amount: '1 шт.',
-        price: '1,70 руб.'
-      },
-      {
-        image: '3.png',
-        title: 'Пирог с ванилью',
-        amount: '1 шт.',
-        price: '1,70 руб.'
-      },
-      {
-        image: '4.png',
-        title: 'Пирог с фисташками',
-        amount: '1 шт.',
-        price: '1,70 руб.'
-      },
-    ];
+  public products: ProductType[] = [];
+
+  constructor(private productService: ProductService, public cartService: CartService) {
+  }
+
+  ngOnInit() {
+    this.products = this.productService.getProducts();
+  }
 
   public formValues: FormValuesType = {
     productTitle: '',
@@ -73,6 +57,8 @@ export class AppComponent {
   public addToCart(product: ProductType, target: HTMLElement): void {
     this.scrollTo(target);
     this.formValues.productTitle = product.title;
+    this.cartService.amount++;
+    this.cartService.total = this.cartService.total + product.price;
   }
 
   public createOrder(): void{
@@ -109,7 +95,7 @@ export class AppComponent {
     }
   ];
 
-  public phone: string = '+375 (29) 368-98-68';
+  public phone: number = 375293689868;
 
   public showPresent: boolean = true;
 }

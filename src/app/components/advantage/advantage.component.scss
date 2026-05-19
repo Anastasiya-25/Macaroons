@@ -1,0 +1,65 @@
+.advantage {
+  max-width: 220px;
+  padding: 0;
+  align-self: flex-start;
+}
+
+.advantage__circle {
+  border-radius: 50%;
+  background-color: rgb(130, 19, 40);
+  width: 70px;
+  height: 70px;
+  position: relative;
+  margin-bottom: 13px;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.circle__number {
+  font-size: 60px;
+  font-family: Gilroy-ExtraBold, sans-serif;
+  color: rgb(255, 255, 255);
+  align-self: self-end;
+  position: absolute;
+  bottom: -16px;
+  right: 22px;
+  transition: color 0.3s ease;
+}
+
+.advantage__title {
+  font-size: 20px;
+  font-family: Gilroy-ExtraBold, sans-serif;
+  color: rgb(51, 25, 7);
+  margin-bottom: 20px;
+}
+
+.advantage__text {
+  font-size: 15px;
+  font-family: Gilroy-Medium, sans-serif;
+  color: rgb(51, 25, 7);
+  line-height: 1.333;
+}
+
+.advantage:hover .advantage__circle {
+  background-color: #eba8b1;
+}
+
+.advantage:hover .circle__number {
+  color: rgb(130, 19, 40);
+}
+
+@media screen and (max-width: 900px) {
+  .advantage {
+    margin: 40px 27px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .advantage {
+    margin: 18px 7px;
+  }
+}
